@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los Disidentes · Club Miralagos · Tenis</title>
+<meta name="description" content="Los Disidentes — equipo de tenis del Club Miralagos. Jugamos juntos, brindamos juntos, crecemos juntos. Quinta B Zona 2, Liga Country Sur.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f6f4ee;
+    --paper:#ffffff;
+    --green:#1c5b3a;
+    --green-dk:#11402a;
+    --green-deep:#0c2e1e;
+    --grape:#6f3d92;
+    --grape-lt:#9460bd;
+    --lime:#aebf3f;
+    --ink:#1e2a24;
+    --muted:#74827b;
+    --line:#e5e1d6;
+    --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+    --sans:'Inter',system-ui,-apple-system,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--green);color:#fff}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+
+  header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+    padding:14px 6vw;background:rgba(12,46,30,.78);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
+  .brand{display:flex;align-items:center;gap:12px;color:#fff}
+  .brand img{width:36px;height:36px;object-fit:contain}
+  .brand .t{font-family:var(--serif);font-weight:700;font-size:1.25rem;letter-spacing:.5px;line-height:1}
+  .brand .sub{display:block;font-family:var(--sans);font-size:.58rem;letter-spacing:3px;color:#a9c2b3;font-weight:500;margin-top:3px}
+  nav{display:flex;gap:30px}
+  nav a{color:#cde0d3;text-decoration:none;font-size:.86rem;font-weight:500;letter-spacing:.6px;transition:.2s;position:relative}
+  nav a:hover{color:#fff}
+  nav a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--lime);transition:.25s}
+  nav a:hover::after{width:100%}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:0}
+  .burger span{width:25px;height:2px;background:#fff;border-radius:3px}
+
+  .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+    padding:130px 6vw 80px;position:relative;color:#fff;
+    background:radial-gradient(ellipse at 50% 20%,#1c5b3a 0%,#11402a 45%,#0c2e1e 100%)}
+  .hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:26px 26px;opacity:.6;pointer-events:none}
+  .hero>*{position:relative;z-index:1}
+  .hero .logo-big{width:150px;height:150px;object-fit:contain;margin-bottom:26px;filter:drop-shadow(0 12px 30px rgba(0,0,0,.45));animation:rise 1s ease both}
+  @keyframes rise{from{opacity:0;transform:translateY(20px) scale(.92)}to{opacity:1;transform:none}}
+  .hero .kicker{font-size:.76rem;letter-spacing:5px;text-transform:uppercase;color:#aecdb9;margin-bottom:18px}
+  .hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(3.4rem,11vw,8rem);line-height:.95;letter-spacing:.5px}
+  .hero h1 em{font-style:italic;color:#cdd98a}
+  .hero .creed{font-family:var(--serif);font-size:clamp(1.2rem,3vw,1.7rem);font-style:italic;color:#e8efe6;margin:24px 0 6px}
+  .hero .place{font-size:.82rem;letter-spacing:3px;text-transform:uppercase;color:#9fb8a8;margin-bottom:36px}
+  .cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .btn{padding:13px 30px;border-radius:50px;font-family:var(--sans);font-weight:600;text-decoration:none;font-size:.86rem;letter-spacing:.5px;transition:.25s;border:1px solid transparent}
+  .btn.primary{background:#fff;color:var(--green-dk)}
+  .btn.primary:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.3)}
+  .btn.ghost{border-color:rgba(255,255,255,.4);color:#fff}
+  .btn.ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+  .scroll{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:1;color:#9fb8a8;font-size:.66rem;letter-spacing:3px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
+  .scroll .ln{width:1px;height:32px;background:linear-gradient(#aecdb9,transparent);animation:drop 1.8s infinite}
+  @keyframes drop{0%{opacity:0;transform:translateY(-8px)}50%{opacity:1}100%{opacity:0;transform:translateY(8px)}}
+
+  section{padding:104px 6vw;position:relative}
+  .eyebrow{color:var(--green);font-weight:600;letter-spacing:4px;text-transform:uppercase;font-size:.72rem;margin-bottom:16px}
+  h2{font-family:var(--serif);font-weight:600;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.05;letter-spacing:.3px;margin-bottom:22px}
+  .lead{max-width:620px;color:var(--muted);font-size:1.05rem}
+  .center{text-align:center;margin-left:auto;margin-right:auto}
+  .divider{width:54px;height:2px;background:var(--grape);margin:0 0 22px}
+  .center .divider{margin-left:auto;margin-right:auto}
+
+  #manifiesto{background:var(--paper)}
+  .manif{max-width:820px;margin:0 auto;text-align:center}
+  .manif .grape-ic{font-size:2.4rem;margin-bottom:10px}
+  .manif p{font-family:var(--serif);font-size:clamp(1.25rem,2.6vw,1.6rem);line-height:1.5;color:#33423a;margin-bottom:22px}
+  .manif p.first{font-size:clamp(1.5rem,3.2vw,2rem);color:var(--ink)}
+  .manif .grapes{color:var(--grape)}
+  .manif .closer{margin-top:30px;display:flex;gap:14px 40px;flex-wrap:wrap;justify-content:center;font-family:var(--sans);font-weight:600;font-size:.92rem;letter-spacing:.5px;color:var(--green)}
+
+  .values{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;margin-top:8px}
+  .value{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:32px 28px;transition:.3s}
+  .value:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(28,91,58,.1)}
+  .value .ic{font-size:1.7rem;margin-bottom:14px}
+  .value h3{font-family:var(--serif);font-size:1.4rem;font-weight:600;margin-bottom:6px}
+  .value p{color:var(--muted);font-size:.92rem}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;margin-top:54px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .stat{background:var(--cream);padding:34px 20px;text-align:center}
+  .stat .num{font-family:var(--serif);font-size:3rem;font-weight:600;color:var(--green);line-height:1}
+  .stat .lbl{color:var(--muted);font-weight:500;letter-spacing:1.5px;text-transform:uppercase;font-size:.68rem;margin-top:8px}
+
+  #galeria{background:var(--paper)}
+  .gallery{columns:3;column-gap:16px;margin-top:10px}
+  .gallery figure{break-inside:avoid;margin:0 0 16px;position:relative;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px rgba(20,40,30,.08)}
+  .gallery img{width:100%;transition:.6s ease;display:block}
+  .gallery figure:hover img{transform:scale(1.05)}
+  .gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 14px;
+    background:linear-gradient(transparent,rgba(12,46,30,.82));color:#fff;font-family:var(--serif);font-style:italic;font-size:1.05rem;
+    opacity:0;transform:translateY(8px);transition:.35s}
+  .gallery figure:hover figcaption{opacity:1;transform:none}
+  @media(max-width:900px){.gallery{columns:2}}
+  @media(max-width:560px){.gallery{columns:1}}
+
+  .matches{display:flex;flex-direction:column;gap:10px}
+  .match{display:grid;grid-template-columns:74px 1fr auto;align-items:center;gap:18px;background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:16px 24px;transition:.25s}
+  .match:hover{transform:translateX(5px);border-color:var(--green)}
+  .match .date{color:var(--muted);font-size:.72rem;font-weight:600;text-align:center;line-height:1.3;letter-spacing:.5px}
+  .match .date b{display:block;font-family:var(--serif);color:var(--ink);font-size:1.5rem;font-weight:600}
+  .match .teams{font-weight:500;font-size:1rem}
+  .match .teams small{color:var(--muted)}
+  .match .result{font-family:var(--serif);font-weight:700;font-size:1.2rem;padding:4px 16px;border-radius:50px}
+  .result.win{background:rgba(28,91,58,.1);color:var(--green)}
+  .result.loss{background:rgba(111,61,146,.12);color:var(--grape)}
+
+  .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--paper);margin-top:28px}
+  table.standings{width:100%;border-collapse:collapse;min-width:520px}
+  table.standings th,table.standings td{padding:13px 16px;text-align:center;font-size:.9rem}
+  table.standings th{color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-size:.68rem;font-weight:600;border-bottom:1px solid var(--line)}
+  table.standings td:nth-child(2),table.standings th:nth-child(2){text-align:left}
+  table.standings tbody tr{border-bottom:1px solid var(--line)}
+  table.standings tbody tr:last-child{border-bottom:0}
+  table.standings tbody td:nth-child(2){font-weight:500}
+  table.standings tbody tr.me{background:rgba(28,91,58,.07)}
+  table.standings tbody tr.me td{color:var(--green);font-weight:700}
+
+  #frase{background:var(--paper)}
+  .frase{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:0.9fr 1.1fr;gap:40px;align-items:center}
+  .frase img{border-radius:16px;box-shadow:0 14px 40px rgba(20,40,30,.18)}
+  .frase .q{font-family:var(--serif);font-style:italic;font-size:clamp(1.8rem,4vw,3rem);line-height:1.15;color:var(--ink)}
+  .frase .q span{color:var(--grape)}
+  .frase .by{margin-top:18px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;font-size:.74rem}
+  @media(max-width:760px){.frase{grid-template-columns:1fr;gap:26px}}
+
+  footer{background:var(--green-deep);color:#bcd1c2;padding:56px 6vw 46px;text-align:center}
+  footer .brand{justify-content:center;margin-bottom:18px}
+  footer .brand .t{color:#fff}
+  footer .creed{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:#e8efe6;margin-bottom:14px}
+  footer small{font-size:.8rem;color:#8aa394}
+
+  .reveal{opacity:0;transform:translateY(34px);transition:.85s cubic-bezier(.2,.8,.2,1)}
+  .reveal.show{opacity:1;transform:none}
+
+  @media(max-width:760px){
+    nav{position:fixed;top:62px;right:5vw;flex-direction:column;background:var(--green-dk);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px 26px;gap:16px;transform:translateX(160%);transition:.3s}
+    nav.open{transform:none}
+    .burger{display:flex}
+    .match{grid-template-columns:60px 1fr;gap:12px}
+    .match .result{grid-column:2;justify-self:start;margin-top:2px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="logo.png" alt="Escudo Los Disidentes">
+    <div class="t">Los Disidentes<span class="sub">Club Miralagos · Tenis</span></div>
+  </div>
+  <button class="burger" id="burger" aria-label="menú"><span></span><span></span><span></span></button>
+  <nav id="nav">
+    <a href="#manifiesto">Manifiesto</a>
+    <a href="#comunidad">Comunidad</a>
+    <a href="#galeria">Galería</a>
+    <a href="#torneo">Torneo</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <img class="logo-big" src="logo.png" alt="Escudo Los Disidentes">
+  <p class="kicker">Tenis · Liga Country Sur</p>
+  <h1>Los <em>Disidentes</em></h1>
+  <p class="creed">Jugamos juntos · Brindamos juntos · Crecemos juntos</p>
+  <p class="place">Club Miralagos · Quinta B Zona 2</p>
+  <div class="cta">
+    <a href="#manifiesto" class="btn primary">Nuestro manifiesto</a>
+    <a href="#torneo" class="btn ghost">Ver el torneo</a>
+  </div>
+  <div class="scroll">Scroll<div class="ln"></div></div>
+</section>
+
+<section id="manifiesto">
+  <div class="manif reveal">
+    <div class="grape-ic">🍇</div>
+    <div class="eyebrow">Quiénes somos</div>
+    <h2>El manifiesto disidente</h2>
+    <div class="divider center"></div>
+    <p class="first">Los Disidentes nacieron con una idea simple: demostrar que se puede competir sin perder la buena onda.</p>
+    <p>Somos un grupo de amigos unidos por el deporte, el compañerismo y las ganas de disfrutar cada partido. Creemos en el respeto, la inclusión, la solidaridad y en que las decisiones se construyen entre todos.</p>
+    <p>Nuestra identidad está representada por el racimo de uvas <span class="grapes">🍇</span>, símbolo de amistad, encuentro y celebración. Porque los mejores momentos no siempre ocurren dentro de la cancha: también suceden alrededor de una mesa, compartiendo un asado 🔥 y una copa de vino 🍷.</p>
+    <p>Más que un equipo, somos una comunidad que eligió disfrutar del camino, crecer juntos y mantener siempre el mismo espíritu: jugar, compartir y pasarla bien.</p>
+    <div class="closer"><span>🎾 Jugamos juntos</span><span>🍷 Brindamos juntos</span><span>❤️ Crecemos juntos</span></div>
+  </div>
+</section>
+
+<section id="comunidad">
+  <div class="reveal center">
+    <div class="eyebrow">Más que un equipo</div>
+    <h2>Una comunidad</h2>
+    <div class="divider center"></div>
+    <p class="lead center">Somos más de 18 jugadores que eligieron el mismo espíritu. Estos son los valores que nos mantienen unidos dentro y fuera de la cancha.</p>
+  </div>
+  <div class="values reveal" style="margin-top:48px">
+    <div class="value"><div class="ic">🤝</div><h3>Respeto</h3><p>Al rival, al compañero y al juego. Siempre, en cada punto.</p></div>
+    <div class="value"><div class="ic">🫂</div><h3>Inclusión</h3><p>Acá hay lugar para todos. El que quiere jugar, juega.</p></div>
+    <div class="value"><div class="ic">💪</div><h3>Solidaridad</h3><p>Nos bancamos entre todos, en las buenas y en las malas.</p></div>
+    <div class="value"><div class="ic">🗳️</div><h3>Decisiones de todos</h3><p>Lo construimos en grupo, nunca de arriba hacia abajo.</p></div>
+  </div>
+  <div class="stats reveal">
+    <div class="stat"><div class="num">+<span data-count="18">0</span></div><div class="lbl">Jugadores</div></div>
+    <div class="stat"><div class="num"><span data-count="2">0</span>°</div><div class="lbl">En la tabla</div></div>
+    <div class="stat"><div class="num" data-count="9">0</div><div class="lbl">Fechas</div></div>
+    <div class="stat"><div class="num" data-count="7">0</div><div class="lbl">Victorias</div></div>
+    <div class="stat"><div class="num" data-count="16">0</div><div class="lbl">Puntos</div></div>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="reveal center">
+    <div class="eyebrow">Momentos</div>
+    <h2>La galería disidente</h2>
+    <div class="divider center"></div>
+    <p class="lead center">Tenis, asados, brindis y mucha buena onda. Así se ve ser parte.</p>
+  </div>
+  <div class="gallery reveal" style="margin-top:48px">
+    <figure><img src="group-net.jpg" alt="El equipo en la red"><figcaption>Unidos en la red</figcaption></figure>
+    <figure><img src="action-1.jpg" alt="Listo para el punto"><figcaption>Listos para el punto</figcaption></figure>
+    <figure><img src="asado.jpg" alt="El asado"><figcaption>El asado de después</figcaption></figure>
+    <figure><img src="group-sky.jpg" alt="La banda completa"><figcaption>La banda completa</figcaption></figure>
+    <figure><img src="brindis.jpg" alt="El brindis"><figcaption>El brindis de siempre</figcaption></figure>
+    <figure><img src="action-3.jpg" alt="Drive a fondo"><figcaption>Drive a fondo</figcaption></figure>
+    <figure><img src="portrait-1.jpg" alt="Buena onda"><figcaption>Pura buena onda</figcaption></figure>
+    <figure><img src="group-line.jpg" alt="Antes de jugar"><figcaption>Antes de entrar a la cancha</figcaption></figure>
+    <figure><img src="action-2.jpg" alt="En la red"><figcaption>Atentos en la red</figcaption></figure>
+    <figure><img src="group-net2.jpg" alt="Con los rivales"><figcaption>Con los rivales, siempre respeto</figcaption></figure>
+    <figure><img src="walk.jpg" alt="Camino a la cancha"><figcaption>Camino a la cancha</figcaption></figure>
+  </div>
+</section>
+
+<section id="torneo">
+  <div class="reveal">
+    <div class="eyebrow">Apertura 2026 · Quinta B Zona 2</div>
+    <h2>Resultados del torneo</h2>
+    <div class="divider"></div>
+    <p class="lead">Las 9 fechas de la fase regular. Resultados oficiales de la Liga Country Sur (en canchas ganadas, formato 0-3).</p>
+  </div>
+  <div class="matches reveal" style="margin-top:44px">
+    <div class="match"><div class="date"><b>07</b>JUN</div><div class="teams">Los Disidentes <small>vs El Rebenque Bueno · F9 (V)</small></div><div class="result loss">1-2</div></div>
+    <div class="match"><div class="date"><b>31</b>MAY</div><div class="teams">Los Disidentes <small>vs Brit Ajim · F8 (V)</small></div><div class="result win">2-1</div></div>
+    <div class="match"><div class="date"><b>24</b>MAY</div><div class="teams">Los Disidentes <small>vs Santa Rita · F7 (L)</small></div><div class="result win">2-1</div></div>
+    <div class="match"><div class="date"><b>17</b>MAY</div><div class="teams">Los Disidentes <small>vs Santa Inés Verde · F6 (L)</small></div><div class="result win">2-1</div></div>
+    <div class="match"><div class="date"><b>10</b>MAY</div><div class="teams">Los Disidentes <small>vs Venado II · F5 (V)</small></div><div class="result loss">1-2</div></div>
+    <div class="match"><div class="date"><b>26</b>ABR</div><div class="teams">Los Disidentes <small>vs Haras del Sur Rojo · F4 (L)</small></div><div class="result win">2-1</div></div>
+    <div class="match"><div class="date"><b>19</b>ABR</div><div class="teams">Los Disidentes <small>vs El Sosiego Rojo · F3 (V)</small></div><div class="result win">3-0</div></div>
+    <div class="match"><div class="date"><b>12</b>ABR</div><div class="teams">Los Disidentes <small>vs El Trébol · F2 (L)</small></div><div class="result win">2-1</div></div>
+    <div class="match"><div class="date"><b>22</b>MAR</div><div class="teams">Los Disidentes <small>vs Fincas de San Vicente · F1 (L)</small></div><div class="result win">3-0</div></div>
+  </div>
+
+  <div class="reveal" style="margin-top:64px">
+    <div class="eyebrow">La tabla</div>
+    <h2>Posiciones</h2>
+    <div class="divider"></div>
+    <p class="lead">Cierre de la fase regular. Los Disidentes terminaron 2°, igualados en 16 puntos con Santa Rita y Santa Inés Verde, atrás solo por diferencia de canchas.</p>
+  </div>
+  <div class="table-wrap reveal">
+    <table class="standings">
+      <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>G</th><th>P</th><th>DIF</th><th>Pts</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Santa Rita</td><td>9</td><td>7</td><td>2</td><td>+13</td><td>16</td></tr>
+        <tr class="me"><td>2</td><td>Miralagos Los Disidentes</td><td>9</td><td>7</td><td>2</td><td>+9</td><td>16</td></tr>
+        <tr><td>3</td><td>Santa Inés Verde</td><td>9</td><td>7</td><td>2</td><td>+5</td><td>16</td></tr>
+        <tr><td>4</td><td>Venado II</td><td>9</td><td>5</td><td>4</td><td>+5</td><td>14</td></tr>
+        <tr><td>5</td><td>Brit Ajim</td><td>9</td><td>5</td><td>4</td><td>+5</td><td>14</td></tr>
+        <tr><td>6</td><td>Haras del Sur Rojo</td><td>9</td><td>4</td><td>5</td><td>+1</td><td>13</td></tr>
+        <tr><td>7</td><td>El Trébol</td><td>9</td><td>4</td><td>5</td><td>-3</td><td>13</td></tr>
+        <tr><td>8</td><td>Fincas de San Vicente Amarillo</td><td>9</td><td>3</td><td>6</td><td>-9</td><td>12</td></tr>
+        <tr><td>9</td><td>El Rebenque Bueno</td><td>9</td><td>2</td><td>7</td><td>-13</td><td>11</td></tr>
+        <tr><td>10</td><td>El Sosiego Rojo</td><td>9</td><td>1</td><td>8</td><td>-13</td><td>10</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="frase">
+  <div class="frase reveal">
+    <img src="frase.jpg" alt="Frases disidentes">
+    <div>
+      <div class="eyebrow">Frases disidentes</div>
+      <p class="q">“La raqueta es como <span>un perfume</span>”</p>
+      <p class="by">— Sabiduría de vestuario</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="brand"><img src="logo.png" alt="" style="width:40px;height:40px;object-fit:contain"><div class="t" style="font-family:var(--serif);font-weight:700;font-size:1.3rem">Los Disidentes</div></div>
+  <p class="creed">Jugamos juntos · Brindamos juntos · Crecemos juntos</p>
+  <small>© 2026 Los Disidentes · Club Miralagos · Hecho con 🍇 y buena onda</small>
+</footer>
+
+<script>
+  const burger=document.getElementById('burger'),nav=document.getElementById('nav');
+  burger.addEventListener('click',()=>nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  const countIO=new IntersectionObserver((es)=>es.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target,target=+el.dataset.count;let n=0;
+    const step=Math.max(1,Math.ceil(target/40));
+    const t=setInterval(()=>{n+=step;if(n>=target){n=target;clearInterval(t)}el.textContent=n},28);
+    countIO.unobserve(el);
+  }),{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(el=>countIO.observe(el));
+</script>
+</body>
+</html>
