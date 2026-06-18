@@ -503,12 +503,29 @@
     const $=id=>document.getElementById(id);
     const esc=s=>(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
+    function delay(ms){return new Promise(function(r){setTimeout(r,ms);});}
+    async function apiGet(tries){
+      tries=tries||4;
+      for(var i=0;i<tries;i++){
+        try{var r=await fetch(POLL_URL,{cache:'no-store'});if(r.ok)return await r.json();}catch(e){}
+        await delay(500*(i+1));
+      }
+      return null;
+    }
+    async function apiPut(payload,tries){
+      tries=tries||5;var last='';
+      for(var i=0;i<tries;i++){
+        try{var r=await fetch(POLL_URL,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});if(r.ok)return r;last='estado '+r.status;}catch(e){last='red';}
+        await delay(700*(i+1));
+      }
+      throw new Error('El servidor está demorado ('+last+'). Esperá unos segundos y reenviá. 🍷');
+    }
     async function fetchData(){
-      try{const r=await fetch(POLL_URL,{cache:'no-store'});if(r.ok){const j=await r.json();const d=j&&j.data;if(d&&d.event){data=d;data.votes=data.votes||{};}}}catch(e){}
+      var j=await apiGet(4);
+      if(j){var d=j.data;if(d&&d.event){data=d;data.votes=data.votes||{};}}
     }
     async function save(){
-      const r=await fetch(POLL_URL,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:'disidentes-poll',data:data})});
-      if(!r.ok)throw new Error('No se pudo guardar (estado '+r.status+')');
+      await apiPut({name:'disidentes-poll',data:data},5);
     }
 
     function chips(container,items,type,multi){
@@ -576,7 +593,7 @@
       const msg=$('ev-msg');msg.className='ev-msg';
       if(!name){msg.classList.add('err');msg.textContent='Escribí tu nombre.';return;}
       if(!sel.attend){msg.classList.add('err');msg.textContent='Definite, disidente: ¿estás o te dejan en penitencia? 😅';return;}
-      const btn=$('ev-send');btn.disabled=true;msg.textContent='Guardando…';
+      const btn=$('ev-send');btn.disabled=true;msg.className='ev-msg';msg.textContent='Guardando… (aguantá un toque) ⏳';
       try{
         await fetchData(); // traer lo último
         data.votes=data.votes||{};
