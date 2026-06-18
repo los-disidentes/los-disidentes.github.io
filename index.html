@@ -341,7 +341,7 @@
           <div class="ev-title" id="ev-title">Cargando evento…</div>
           <div class="ev-meta" id="ev-meta"></div>
         </div>
-        <button class="ev-gear" id="ev-gear" title="Editar evento (organizadores)">⚙️ Editar evento</button>
+        <button class="ev-gear" id="ev-gear" title="Editar evento (organizadores)" style="display:none">⚙️ Editar evento</button>
       </div>
 
       <div class="ev-grid">
@@ -589,7 +589,8 @@
       btn.disabled=false;
     }
 
-    // admin
+    // admin: el boton solo aparece con link secreto (?editar o #editar)
+    if(/editar/i.test(location.search)||/editar/i.test(location.hash)){$('ev-gear').style.display='';}
     $('ev-gear').addEventListener('click',()=>$('ev-admin').classList.toggle('open'));
     $('adm-save').addEventListener('click',async()=>{
       const m=$('adm-msg');m.className='ev-msg';
