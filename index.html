@@ -146,6 +146,80 @@
   .reveal{opacity:0;transform:translateY(34px);transition:.85s cubic-bezier(.2,.8,.2,1)}
   .reveal.show{opacity:1;transform:none}
 
+  /* eventos / encuesta */
+  #eventos{background:var(--cream)}
+  .ev-wrap{max-width:920px;margin:0 auto}
+  .ev-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:34px clamp(22px,4vw,40px);box-shadow:0 10px 30px rgba(20,40,30,.06)}
+  .ev-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:6px}
+  .ev-title{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.3rem);font-weight:600;color:var(--ink);line-height:1.1}
+  .ev-meta{color:var(--green);font-weight:600;letter-spacing:.3px;margin-top:4px}
+  .ev-meta .sep{color:var(--line)}
+  .ev-empty{color:var(--muted);font-style:italic}
+  .ev-gear{background:none;border:1px solid var(--line);border-radius:50px;padding:7px 14px;cursor:pointer;color:var(--muted);font-size:.78rem;font-weight:600;transition:.2s;font-family:var(--sans)}
+  .ev-gear:hover{border-color:var(--grape);color:var(--grape)}
+  .ev-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:24px}
+  @media(max-width:720px){.ev-grid{grid-template-columns:1fr;gap:24px}}
+  .ev-block h4{font-family:var(--sans);font-size:.74rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:14px}
+  .ev-field{margin-bottom:18px}
+  .ev-field label.lbl{display:block;font-weight:600;font-size:.9rem;margin-bottom:8px;color:var(--ink)}
+  .ev-input{width:100%;background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:11px 14px;font-size:.95rem;font-family:var(--sans);color:var(--ink)}
+  .ev-input:focus{outline:none;border-color:var(--green)}
+  .opt-row{display:flex;flex-wrap:wrap;gap:8px}
+  .opt{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:50px;padding:8px 15px;cursor:pointer;font-size:.88rem;transition:.18s;background:var(--paper);user-select:none}
+  .opt:hover{border-color:var(--green)}
+  .opt input{accent-color:var(--green);margin:0}
+  .opt.sel{background:rgba(28,91,58,.08);border-color:var(--green);color:var(--green);font-weight:600}
+  .opt.sel.no{background:rgba(111,61,146,.1);border-color:var(--grape);color:var(--grape)}
+  .ev-submit{background:var(--green);color:#fff;border:0;border-radius:50px;padding:13px 30px;font-weight:600;font-size:.92rem;cursor:pointer;font-family:var(--sans);transition:.2s;letter-spacing:.3px}
+  .ev-submit:hover{background:var(--green-dk)}
+  .ev-submit:disabled{opacity:.55;cursor:default}
+  .ev-msg{margin-top:12px;font-size:.86rem;font-weight:600;min-height:20px}
+  .ev-msg.ok{color:var(--green)} .ev-msg.err{color:var(--grape)}
+  /* resultados */
+  .res-block{margin-bottom:22px}
+  .res-row{margin-bottom:11px}
+  .res-row .rl{display:flex;justify-content:space-between;font-size:.86rem;margin-bottom:4px}
+  .res-row .rl b{font-weight:600}
+  .bar{height:9px;background:var(--line);border-radius:50px;overflow:hidden}
+  .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--green),var(--green-br,#27a35a));border-radius:50px;transition:width .6s}
+  .bar.g i{background:linear-gradient(90deg,var(--grape),var(--grape-lt))}
+  .who{display:flex;flex-wrap:wrap;gap:7px;margin-top:6px}
+  .chip{font-size:.8rem;padding:5px 12px;border-radius:50px;background:rgba(28,91,58,.09);color:var(--green);font-weight:600}
+  .chip.no{background:rgba(111,61,146,.1);color:var(--grape)}
+  .chip.maybe{background:rgba(116,130,123,.12);color:var(--muted)}
+  .ev-count{color:var(--muted);font-size:.82rem;margin-top:2px}
+  .ev-admin{margin-top:22px;border-top:1px solid var(--line);padding-top:20px;display:none}
+  .ev-admin.open{display:block}
+  .ev-admin .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:600px){.ev-admin .row2{grid-template-columns:1fr}}
+  .ev-hint{color:var(--muted);font-size:.8rem;margin-top:8px}
+
+  /* banner promo */
+  .promo{position:relative;z-index:2;max-width:760px;margin:0 auto 30px;border-radius:18px;overflow:hidden;
+    background:linear-gradient(110deg,var(--grape) 0%,#5a4a8f 45%,var(--green) 100%);background-size:200% auto;
+    animation:promoShine 7s linear infinite;box-shadow:0 16px 40px rgba(20,40,30,.35)}
+  @keyframes promoShine{to{background-position:200% center}}
+  .promo::before{content:"";position:absolute;inset:0;background:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1px);background-size:18px 18px;opacity:.5}
+  .promo-in{position:relative;display:flex;align-items:center;gap:18px;padding:18px 22px;flex-wrap:wrap;justify-content:center;text-align:center}
+  .promo .tagp{font-size:.66rem;letter-spacing:3px;text-transform:uppercase;color:#f2eaff;font-weight:700;display:block;margin-bottom:3px}
+  .promo h3{font-family:var(--serif);font-weight:600;font-size:clamp(1.2rem,3.2vw,1.7rem);color:#fff;line-height:1.15}
+  .promo h3 em{font-style:italic;color:#e9ec9a}
+  .promo .pbtn{flex:none;background:#fff;color:var(--grape);font-weight:700;text-decoration:none;padding:11px 22px;border-radius:50px;font-size:.9rem;transition:.2s;white-space:nowrap}
+  .promo .pbtn:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 10px 24px rgba(0,0,0,.3)}
+  .promo .pclose{position:absolute;top:8px;right:12px;color:rgba(255,255,255,.7);background:none;border:0;font-size:1.1rem;cursor:pointer;line-height:1}
+  .promo .pclose:hover{color:#fff}
+
+  /* boton flotante */
+  .fab{position:fixed;right:18px;bottom:18px;z-index:60;display:inline-flex;align-items:center;gap:9px;
+    background:linear-gradient(110deg,var(--grape),var(--green));color:#fff;text-decoration:none;font-weight:700;font-size:.86rem;
+    padding:13px 20px;border-radius:50px;box-shadow:0 12px 30px rgba(20,40,30,.4);
+    opacity:0;transform:translateY(20px) scale(.9);pointer-events:none;transition:.35s cubic-bezier(.2,.9,.3,1.2)}
+  .fab.show{opacity:1;transform:none;pointer-events:auto;animation:fabPulse 2.4s ease-in-out infinite}
+  .fab:hover{transform:translateY(-3px) scale(1.04)}
+  @keyframes fabPulse{0%,100%{box-shadow:0 12px 30px rgba(111,61,146,.4)}50%{box-shadow:0 12px 40px rgba(111,61,146,.7)}}
+  .fab .dotp{width:9px;height:9px;border-radius:50%;background:#e9ec9a;box-shadow:0 0 8px #e9ec9a}
+  @media(max-width:480px){.fab span.lbl{display:none}.fab{padding:14px}}
+
   @media(max-width:760px){
     nav{position:fixed;top:62px;right:5vw;flex-direction:column;background:var(--green-dk);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px 26px;gap:16px;transform:translateX(160%);transition:.3s}
     nav.open{transform:none}
@@ -167,11 +241,22 @@
     <a href="#manifiesto">Manifiesto</a>
     <a href="#comunidad">Comunidad</a>
     <a href="#galeria">Galería</a>
+    <a href="#eventos">Eventos</a>
     <a href="#torneo">Torneo</a>
   </nav>
 </header>
 
 <section class="hero">
+  <div class="promo" id="promo">
+    <button class="pclose" id="promo-close" aria-label="cerrar">×</button>
+    <div class="promo-in">
+      <div>
+        <span class="tagp">🏆 Viernes 19/6 · Cierre del Apertura</span>
+        <h3>El telón baja con asado y vino.<br><em>¿Estás o te quedás lavando los platos?</em></h3>
+      </div>
+      <a href="#eventos" class="pbtn">Votá acá 👉</a>
+    </div>
+  </div>
   <img class="logo-big" src="logo.png" alt="Escudo Los Disidentes">
   <p class="kicker">Tenis · Liga Country Sur</p>
   <h1>Los <em>Disidentes</em></h1>
@@ -242,6 +327,74 @@
   </div>
 </section>
 
+<section id="eventos">
+  <div class="reveal center">
+    <div class="eyebrow">🍇 Se viene</div>
+    <h2>Cierre del Apertura</h2>
+    <div class="divider center"></div>
+    <p class="lead center">Bajamos el telón del Torneo Apertura como Dios manda: raquetas, asado, vino y los Disidentes de siempre. La cancha ya está. El fuego también. Solo falta una cosa: <b>vos</b>. Decinos la verdad… ¿estás, o esta vez ganó la jefa? 😏</p>
+  </div>
+  <div class="ev-wrap reveal" style="margin-top:44px">
+    <div class="ev-card">
+      <div class="ev-head">
+        <div>
+          <div class="ev-title" id="ev-title">Cargando evento…</div>
+          <div class="ev-meta" id="ev-meta"></div>
+        </div>
+        <button class="ev-gear" id="ev-gear" title="Editar evento (organizadores)">⚙️ Editar evento</button>
+      </div>
+
+      <div class="ev-grid">
+        <!-- VOTAR -->
+        <div class="ev-block">
+          <h4>Tu voto</h4>
+          <div class="ev-field">
+            <label class="lbl" for="ev-name">Tu nombre</label>
+            <input class="ev-input" id="ev-name" placeholder="Ej: Aied" autocomplete="off">
+          </div>
+          <div class="ev-field">
+            <label class="lbl">¿Te hacés presente?</label>
+            <div class="opt-row" id="ev-attend"></div>
+          </div>
+          <div class="ev-field" id="ev-dates-field">
+            <label class="lbl">¿Qué días te quedan bien?</label>
+            <div class="opt-row" id="ev-dates"></div>
+          </div>
+          <div class="ev-field" id="ev-pref-field">
+            <label class="lbl">¿Qué preferís?</label>
+            <div class="opt-row" id="ev-pref"></div>
+          </div>
+          <button class="ev-submit" id="ev-send">Enviar mi voto</button>
+          <div class="ev-msg" id="ev-msg"></div>
+        </div>
+
+        <!-- RESULTADOS -->
+        <div class="ev-block">
+          <h4>Resultados en vivo</h4>
+          <div id="ev-results"><p class="ev-empty">Todavía no hay votos. ¡Sé el primero!</p></div>
+        </div>
+      </div>
+
+      <!-- ADMIN -->
+      <div class="ev-admin" id="ev-admin">
+        <h4 style="color:var(--grape)">Editar evento (organizadores)</h4>
+        <div class="ev-field"><label class="lbl">Código de organizador</label><input class="ev-input" id="adm-code" type="password" placeholder="Código"></div>
+        <div class="row2">
+          <div class="ev-field"><label class="lbl">Título del evento</label><input class="ev-input" id="adm-title" placeholder="Asado + partido"></div>
+          <div class="ev-field"><label class="lbl">Lugar</label><input class="ev-input" id="adm-place" placeholder="Club Miralagos"></div>
+        </div>
+        <div class="ev-field"><label class="lbl">Días candidatos (separados por coma)</label><input class="ev-input" id="adm-dates" placeholder="Sáb 21/06, Dom 22/06, Sáb 28/06"></div>
+        <div class="ev-field"><label class="lbl">Opciones a elegir (separadas por coma)</label><input class="ev-input" id="adm-options" placeholder="Cancha + asado, Solo partido, Otra"></div>
+        <button class="ev-submit" id="adm-save" style="background:var(--grape)">Guardar evento</button>
+        <span class="ev-submit" id="adm-reset" style="background:none;color:var(--muted);border:1px solid var(--line);cursor:pointer;margin-left:8px;display:inline-block">Borrar votos</span>
+        <div class="ev-msg" id="adm-msg"></div>
+        <p class="ev-hint">Al guardar un evento nuevo se reinician los votos. El código lo definen los organizadores.</p>
+      </div>
+    </div>
+    <p class="ev-hint center" style="text-align:center;margin-top:14px">Los votos se guardan online y los ve todo el equipo. Podés cambiar tu voto reenviando con el mismo nombre.</p>
+  </div>
+</section>
+
 <section id="torneo">
   <div class="reveal">
     <div class="eyebrow">Apertura 2026 · Quinta B Zona 2</div>
@@ -297,6 +450,8 @@
   </div>
 </section>
 
+<a href="#eventos" class="fab" id="fab"><span class="dotp"></span><span class="lbl">🎾 Votá el cierre del Apertura</span></a>
+
 <footer>
   <div class="brand"><img src="logo.png" alt="" style="width:40px;height:40px;object-fit:contain"><div class="t" style="font-family:var(--serif);font-weight:700;font-size:1.3rem">Los Disidentes</div></div>
   <p class="creed">Jugamos juntos · Brindamos juntos · Crecemos juntos</p>
@@ -319,6 +474,152 @@
     countIO.unobserve(el);
   }),{threshold:.6});
   document.querySelectorAll('[data-count]').forEach(el=>countIO.observe(el));
+
+  /* banner + boton flotante */
+  (function(){
+    var promo=document.getElementById('promo'),close=document.getElementById('promo-close'),fab=document.getElementById('fab');
+    if(close)close.addEventListener('click',()=>promo.style.display='none');
+    var ev=document.getElementById('eventos');
+    function onScroll(){
+      var past=window.scrollY>620;
+      var evTop=ev?ev.getBoundingClientRect().top:9999;
+      var inEv=evTop<window.innerHeight*0.6 && evTop>-(ev?ev.offsetHeight:0);
+      if(fab)fab.classList.toggle('show',past&&!inEv);
+    }
+    window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+    if(fab)fab.addEventListener('click',()=>fab.classList.remove('show'));
+  })();
+
+  /* ===== ENCUESTA DE EVENTOS ===== */
+  (function(){
+    const POLL_URL='https://kvdb.io/EyTZ1sosm5J5rJXndDVyxM/poll';
+    const ADMIN_CODE='disidentes2026';
+    const POS='Ahí estaré', NEG='Mi mujer no me deja';
+    const ATTEND=[POS,NEG];
+    const DEFAULT={event:{title:'Cierre del Torneo Apertura 🏆',place:'Viernes 19 de Junio · Quincho Rojo',dates:[],options:[]},votes:{}};
+    let data=JSON.parse(JSON.stringify(DEFAULT));
+    let sel={attend:null,dates:[],pref:null};
+
+    const $=id=>document.getElementById(id);
+    const esc=s=>(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+    async function fetchData(){
+      try{const r=await fetch(POLL_URL,{cache:'no-store'});if(r.ok){const j=await r.json();if(j&&j.event){data=j;data.votes=data.votes||{};}}}catch(e){}
+    }
+    async function save(){
+      const r=await fetch(POLL_URL,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+      if(!r.ok)throw new Error('No se pudo guardar (estado '+r.status+')');
+    }
+
+    function chips(container,items,type,multi){
+      container.innerHTML='';
+      items.forEach(it=>{
+        const lab=document.createElement('label');lab.className='opt';
+        const inp=document.createElement('input');inp.type=multi?'checkbox':'radio';inp.name=type;inp.value=it;
+        lab.appendChild(inp);lab.appendChild(document.createTextNode(' '+it));
+        function refresh(){
+          if(multi){lab.classList.toggle('sel',inp.checked);}
+          else{container.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel','no'));if(inp.checked){lab.classList.add('sel');if(type==='attend'&&it===NEG)lab.classList.add('no');}}
+        }
+        inp.addEventListener('change',()=>{
+          if(type==='attend'){sel.attend=inp.checked?it:null;refresh();}
+          else if(type==='pref'){sel.pref=inp.checked?it:null;refresh();}
+          else{sel.dates=[...container.querySelectorAll('input:checked')].map(x=>x.value);refresh();}
+        });
+        if((type==='attend'&&sel.attend===it)||(type==='pref'&&sel.pref===it)||(type==='dates'&&sel.dates.includes(it))){inp.checked=true;}
+        container.appendChild(lab);refresh();
+      });
+    }
+
+    function renderForm(){
+      const ev=data.event||DEFAULT.event;
+      $('ev-title').textContent=ev.title||'Próximo encuentro';
+      const meta=[];if(ev.place)meta.push(esc(ev.place));
+      $('ev-meta').innerHTML=meta.join(' <span class="sep">·</span> ');
+      chips($('ev-attend'),ATTEND,'attend',false);
+      const ds=(ev.dates||[]).filter(Boolean);
+      $('ev-dates-field').style.display=ds.length?'':'none';
+      if(ds.length)chips($('ev-dates'),ds,'dates',true);
+      const ops=(ev.options||[]).filter(Boolean);
+      $('ev-pref-field').style.display=ops.length?'':'none';
+      if(ops.length)chips($('ev-pref'),ops,'pref',false);
+    }
+
+    function bar(label,count,total,grape){
+      const pct=total?Math.round(count/total*100):0;
+      return '<div class="res-row"><div class="rl"><span>'+esc(label)+'</span><b>'+count+'</b></div><div class="bar'+(grape?' g':'')+'"><i style="width:'+pct+'%"></i></div></div>';
+    }
+    function renderResults(){
+      const ev=data.event||{},votes=data.votes||{},names=Object.keys(votes);
+      const box=$('ev-results');
+      if(!names.length){box.innerHTML='<p class="ev-empty">Nadie votó todavía. Alguien tiene que romper el hielo… ¿o el matrimonio? 😏</p>';return;}
+      let html='';
+      // asistencia
+      const go=names.filter(n=>votes[n].attend===POS);
+      const no=names.filter(n=>votes[n].attend===NEG);
+      html+='<div class="res-block"><div class="ev-count">'+names.length+' respondieron · <b style="color:var(--green)">'+go.length+' confirmados</b></div><div class="who">';
+      go.forEach(n=>html+='<span class="chip">🎾 '+esc(n)+'</span>');
+      no.forEach(n=>html+='<span class="chip no">⛓️ '+esc(n)+'</span>');
+      html+='</div>'+(no.length?'<div class="ev-count" style="margin-top:8px;font-style:italic">'+no.length+' bajo arresto domiciliario 😅</div>':'')+'</div>';
+      // fechas
+      const ds=(ev.dates||[]).filter(Boolean);
+      if(ds.length){html+='<div class="res-block"><h4>Días</h4>';ds.forEach(d=>{const c=names.filter(n=>(votes[n].dates||[]).includes(d)).length;html+=bar(d,c,names.length,false);});html+='</div>';}
+      // preferencia
+      const ops=(ev.options||[]).filter(Boolean);
+      if(ops.length){html+='<div class="res-block"><h4>Preferencia</h4>';ops.forEach(o=>{const c=names.filter(n=>votes[n].pref===o).length;html+=bar(o,c,names.length,true);});html+='</div>';}
+      box.innerHTML=html;
+    }
+    function renderAll(){renderForm();renderResults();}
+
+    async function submitVote(){
+      const name=$('ev-name').value.trim();
+      const msg=$('ev-msg');msg.className='ev-msg';
+      if(!name){msg.classList.add('err');msg.textContent='Escribí tu nombre.';return;}
+      if(!sel.attend){msg.classList.add('err');msg.textContent='Definite, disidente: ¿estás o te dejan en penitencia? 😅';return;}
+      const btn=$('ev-send');btn.disabled=true;msg.textContent='Guardando…';
+      try{
+        await fetchData(); // traer lo último
+        data.votes=data.votes||{};
+        data.votes[name]={attend:sel.attend,dates:sel.dates,pref:sel.pref,ts:Date.now()};
+        await save();
+        try{localStorage.setItem('disi_name',name);}catch(e){}
+        msg.className='ev-msg ok';msg.textContent=(sel.attend===POS?('¡Grande, '+name+'! Te esperamos con la red lista. 🎾🍷'):('Anotado, '+name+'. Mandale un beso a la jefa. 😅⛓️'));
+        renderResults();
+      }catch(e){msg.className='ev-msg err';msg.textContent=e.message||'No se pudo guardar. Probá de nuevo.';}
+      btn.disabled=false;
+    }
+
+    // admin
+    $('ev-gear').addEventListener('click',()=>$('ev-admin').classList.toggle('open'));
+    $('adm-save').addEventListener('click',async()=>{
+      const m=$('adm-msg');m.className='ev-msg';
+      if($('adm-code').value!==ADMIN_CODE){m.classList.add('err');m.textContent='Código incorrecto.';return;}
+      const ev={title:$('adm-title').value.trim()||'Próximo encuentro',place:$('adm-place').value.trim(),
+        dates:$('adm-dates').value.split(',').map(s=>s.trim()).filter(Boolean),
+        options:$('adm-options').value.split(',').map(s=>s.trim()).filter(Boolean)};
+      m.textContent='Guardando…';
+      try{data={event:ev,votes:{}};await save();sel={attend:null,dates:[],pref:null};renderAll();m.className='ev-msg ok';m.textContent='Evento actualizado y votos reiniciados.';}
+      catch(e){m.className='ev-msg err';m.textContent=e.message;}
+    });
+    $('adm-reset').addEventListener('click',async()=>{
+      const m=$('adm-msg');m.className='ev-msg';
+      if($('adm-code').value!==ADMIN_CODE){m.classList.add('err');m.textContent='Código incorrecto.';return;}
+      m.textContent='Borrando…';
+      try{data.votes={};await save();renderResults();m.className='ev-msg ok';m.textContent='Votos borrados.';}
+      catch(e){m.className='ev-msg err';m.textContent=e.message;}
+    });
+    $('ev-send').addEventListener('click',submitVote);
+
+    // init
+    renderAll();
+    try{const n=localStorage.getItem('disi_name');if(n)$('ev-name').value=n;}catch(e){}
+    fetchData().then(()=>{ // si admin ya cargó, prellenar campos admin
+      const ev=data.event||{};
+      $('adm-title').value=ev.title||'';$('adm-place').value=ev.place||'';
+      $('adm-dates').value=(ev.dates||[]).join(', ');$('adm-options').value=(ev.options||[]).join(', ');
+      renderAll();
+    });
+  })();
 </script>
 </body>
 </html>
