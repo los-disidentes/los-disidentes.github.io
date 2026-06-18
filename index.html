@@ -492,7 +492,7 @@
 
   /* ===== ENCUESTA DE EVENTOS ===== */
   (function(){
-    const POLL_URL='https://kvdb.io/EyTZ1sosm5J5rJXndDVyxM/poll';
+    const POLL_URL='https://api.restful-api.dev/objects/ff8081819d82fab6019edb55c7c130dd';
     const ADMIN_CODE='disidentes2026';
     const POS='Ahí estaré', NEG='Mi mujer no me deja';
     const ATTEND=[POS,NEG];
@@ -504,10 +504,10 @@
     const esc=s=>(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
     async function fetchData(){
-      try{const r=await fetch(POLL_URL,{cache:'no-store'});if(r.ok){const j=await r.json();if(j&&j.event){data=j;data.votes=data.votes||{};}}}catch(e){}
+      try{const r=await fetch(POLL_URL,{cache:'no-store'});if(r.ok){const j=await r.json();const d=j&&j.data;if(d&&d.event){data=d;data.votes=data.votes||{};}}}catch(e){}
     }
     async function save(){
-      const r=await fetch(POLL_URL,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+      const r=await fetch(POLL_URL,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:'disidentes-poll',data:data})});
       if(!r.ok)throw new Error('No se pudo guardar (estado '+r.status+')');
     }
 
